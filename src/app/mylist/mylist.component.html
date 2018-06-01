@@ -1,0 +1,25 @@
+<div class="cnt">
+  <p class="header">NETFLIX PAGE</p>
+  <h1>MY LIST</h1>
+  <table>
+    <tr>
+      <td *ngFor="let item of mylist ; let index=index" (mouseover)="hoveredIndex=index" (mouseout)="hoveredIndex=null">
+        <p>{{item.title}}</p>
+        <img src="{{item.img}}">
+        <br>
+        <button class="btn btn-danger" [hidden]='hoveredIndex !== index' (click)="removeTitle(item.id)">Remove</button>
+      </td>
+    </tr>
+  </table>
+  <h1>RECOMMENDATION</h1>
+  <table>
+    <tr>
+      <td *ngFor="let rec of recommendations;let ind=index" (mouseover)="hoveredInd=ind" (mouseout)="hoveredInd=null">
+        <p>{{rec.title}}</p>
+        <img src="{{rec.img}}">
+        <br>
+        <button class="btn btn-success" [hidden]='hoveredInd !== ind' (click)="addTitle(rec.id)">Add</button>
+      </td>
+    </tr>
+  </table>
+</div>
